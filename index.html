@@ -11,22 +11,21 @@
         <!-- Itt van hogy kell hasznalni az egy soros if-et  -->
         <input v-model="newItem" type="text" placeholder="Add an item">
         <label>
-            <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog
-        </label>                                                                                            <!-- <select v-model="newItemPriority">
-                                                                                                        <option value="low">Low</option>
-                                                                                                        <option value="high">High</option>
-                                                                                                    </select> <label><input type="radio" v-model="newItemPriority" value="low">Low</label> 
+            <!-- <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog -->
+        </label>
+        <label >
+        <select v-model="newItemPriority">
+                <option value="low">Low</option>
+                <option value="high">High</option>
+            </select>
+        </label>
+        {{newItemPriority}}
+                 <!-- <label><input type="radio" v-model="newItemPriority" value="low">Low</label> 
                                                                                             <label><input type="radio" v-model="newItemPriority" value="high">High</label> -->
-        <br>
-        {{newItem}} {{newItemHighPriority}}
+        
                                                                                                 
 
-        <label><input type="checkbox" v-model="fagyiIzek" value="vanilia">Vanilia</label>
-        <label><input type="checkbox" v-model="fagyiIzek" value="csoki">Csoki</label>
-        <label><input type="checkbox" v-model="fagyiIzek" value="eper">Eper</label>
-        <label><input type="checkbox" v-model="fagyiIzek" value="csokiskeszk">Csokiskeszk</label>
-        <label><input type="checkbox" v-model="fagyiIzek" value="citrom">Citrom</label>
-
+        
         <ul style="list-style-type: none;">
             <li style="font-size: xx-large;" v-for="item in items" :key="item.id"> {{item.label}}</li>
             
@@ -42,7 +41,7 @@
                 return{
                     header: "Shopping List App",
                     newItem : '',
-                    newItemHighPriority: false,
+                    newItemPriority: 'low',
                     fagyiIzek:[
 
                     ],
