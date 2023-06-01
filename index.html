@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Shopping List App</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body style="font-size: xx-large;">
+    <div id="shoppinglist">
+        <h1 style="text-align: center ;">{{header ? header : 'Welcome'}}</h1>
+        <!-- Itt van hogy kell hasznalni az egy soros if-et  -->
+        <input v-model="newItem" type="text" placeholder="Add an item">
+        <label>
+            <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog
+        </label>                                                                                            <!-- <select v-model="newItemPriority">
+                                                                                                        <option value="low">Low</option>
+                                                                                                        <option value="high">High</option>
+                                                                                                    </select> <label><input type="radio" v-model="newItemPriority" value="low">Low</label> 
+                                                                                            <label><input type="radio" v-model="newItemPriority" value="high">High</label> -->
+        <br>
+        {{newItem}} {{newItemHighPriority}}
+                                                                                                
+
+        <label><input type="checkbox" v-model="fagyiIzek" value="vanilia">Vanilia</label>
+        <label><input type="checkbox" v-model="fagyiIzek" value="csoki">Csoki</label>
+        <label><input type="checkbox" v-model="fagyiIzek" value="eper">Eper</label>
+        <label><input type="checkbox" v-model="fagyiIzek" value="csokiskeszk">Csokiskeszk</label>
+        <label><input type="checkbox" v-model="fagyiIzek" value="citrom">Citrom</label>
+
+        <ul style="list-style-type: none;">
+            <li style="font-size: xx-large;" v-for="item in items" :key="item.id"> {{item.label}}</li>
+            
+        </ul>
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        let id = 0;
+         const shoppingListApp =  Vue.createApp({
+            data(){
+                return{
+                    header: "Shopping List App",
+                    newItem : '',
+                    newItemHighPriority: false,
+                    fagyiIzek:[
+
+                    ],
+                    items:[
+                  {id: id++, label:"10 party sapka"},
+                  {id: id++, label:"2 tarsas jatek"},
+                  {id: id++, label:"20 pohar"},
+                  {id: id++, label:"40 lufi"}
+                  ]
+                }
+            }
+          })
+        .mount('#shoppinglist')
+    </script>
+</body>
+</html>
