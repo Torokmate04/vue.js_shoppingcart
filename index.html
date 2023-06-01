@@ -9,13 +9,18 @@
     <div id="shoppinglist">
         <h1 style="text-align: center ;">{{header ? header : 'Welcome'}}</h1>
         <!-- Itt van hogy kell hasznalni az egy soros if-et  -->
-        <input v-model="newItem" type="text" placeholder="Add an item">
-        <label>
-            <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog
-        </label>
+        <div class="add-item-form">
+            <input @keyup.enter="saveItem()" v-model="newItem" type="text" placeholder="Add an item"><br>
+            <label><input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog</label><br>
+            <button
+             class="btn btn-primary"
+             @click="saveItem()">
+             Save item
+            </button>
+        </div>
+        
     
-       <br>
-        {{newItemHighPriority}}
+      
                   
         
                                                                                                 
@@ -46,6 +51,12 @@
                   {id: id++, label:"20 pohar"},
                   {id: id++, label:"40 lufi"}
                   ]
+                }
+            },
+            methods:{
+                saveItem(){
+                    this.items.push({id:this.items.lenght + 1, label: this.newItem})
+                    this.newItem = "";
                 }
             }
           })
