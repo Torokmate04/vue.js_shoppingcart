@@ -11,13 +11,11 @@
         <!-- Itt van hogy kell hasznalni az egy soros if-et  -->
         <input v-model="newItem" type="text" placeholder="Add an item">
         <label>
-            <!-- <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog -->
+            <input type="checkbox" v-model="newItemHighPriority">Nagyonfotos dolog
         </label>
-        
-            <label><input type="radio" v-model="newItemPriority" value="low">Low</label> 
-            <label><input type="radio" v-model="newItemPriority" value="high">High</label>
+    
        <br>
-        {{newItemPriority}}
+        {{newItemHighPriority}}
                   
         
                                                                                                 
@@ -38,7 +36,7 @@
                 return{
                     header: "Shopping List App",
                     newItem : '',
-                    newItemPriority: 'low',
+                    newItemHighPriority: false,
                     fagyiIzek:[
 
                     ],
